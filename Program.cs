@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Calculatron
 {
@@ -36,26 +38,22 @@ namespace Calculatron
                 //if the user entered 1-4, get the two numbers
                 if (selection >= 1 && selection <= 4)
                 {
-                    Console.Write("Please enter the first number: ");
+                    Console.Write("Please enter two numbers with a space in between: ");
                     int num1 = 0;
                     int num2 = 0;
-                    try
-                    {
-                        num1 = Int32.Parse(Console.ReadLine());
-                    }
-                    catch
-                    {
-                        Console.WriteLine("Pleae enter a valid integer.");
+                    List<string> nums =  Console.ReadLine().Split(" ").ToList();
+                    if(nums.Count != 2){
+                        Console.WriteLine("Please enter exactly two integers.");
                         continue;
                     }
-                    Console.Write("Please enter the second number: ");
                     try
                     {
-                         num2 = Int32.Parse(Console.ReadLine());
+                        num1 = Int32.Parse(nums[0]);
+                        num2 = Int32.Parse(nums[1]);
                     }
                     catch
                     {
-                        Console.WriteLine("Pleae enter a valid integer.");
+                        Console.WriteLine("Pleae enter two valid integers.");
                         continue;
                     }
 
