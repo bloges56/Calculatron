@@ -6,6 +6,9 @@ namespace Calculatron
     {
         static void Main(string[] args)
         {
+            //create a calculator object to do operations
+            Calculator calc = new Calculator();
+
             //Prompt for a selection
             Console.WriteLine("Welcome to Calculatron 3000!");
             while (true)
@@ -60,18 +63,18 @@ namespace Calculatron
                     switch (selection)
                     {
                         case 1:
-                            Console.WriteLine($"The result of adding {num1} and {num2} is {num1 + num2}");
+                            Console.WriteLine($"The result of adding {num1} and {num2} is {calc.Add(num1, num2)}");
                             break;
                         case 2:
-                            Console.WriteLine($"The result of subtracting {num1} and {num2} is {num1 - num2}");
+                            Console.WriteLine($"The result of subtracting {num1} and {num2} is {calc.Subtract(num1,num2)}");
                             break;
                         case 3:
-                            Console.WriteLine($"The result of multiplying {num1} and {num2} is {num1 * num2}");
+                            Console.WriteLine($"The result of multiplying {num1} and {num2} is {calc.Multiply(num1,num2)}");
                             break;
                         case 4:
                             try
                             {
-                                Console.WriteLine($"The result of dividing {num1} and {num2} is {num1 / num2}");
+                                Console.WriteLine($"The result of dividing {num1} and {num2} is {calc.Divide(num1, num2)}");
                             }
                             catch
                             {
