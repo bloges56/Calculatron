@@ -20,6 +20,8 @@ namespace Calculatron
                 Console.WriteLine("2) Subtract two numbers");
                 Console.WriteLine("3) Multiply two numbers");
                 Console.WriteLine("4) Divide two numbers");
+                Console.WriteLine("5) Square a number");
+                Console.WriteLine("6) Find the square root of a number");
                 Console.WriteLine("0) Exit");
 
                 int selection = 0;
@@ -79,6 +81,39 @@ namespace Calculatron
                                 Console.WriteLine("Can't divide by 0");
                             }
                             break;
+                    }
+                }
+                //if the user picked 5 or 6 only read one number
+                else if(selection == 5 || selection == 6)
+                {
+                    int num = 0;
+                    Console.Write("Enter a number: ");
+                    try
+                    {
+                        num = Int32.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Please enter a valid integer");
+                    }
+
+                    //log the result depending on the user's choice
+                    if(selection == 5)
+                    {
+                        Console.WriteLine($"The sqaure of {num} is {calc.Square(num)}");
+                    }
+                    else
+                    { 
+                        double result = calc.Sqrt(num);
+                        if(Double.IsNaN(result))
+                        {
+                            Console.WriteLine($"Can't find the square root of a negative integer");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"The square root of {num} is {result}");  
+                        }
+                         
                     }
                 }
                 //if the user entered anything other than 1,2,3, or 4, exit the while loop
