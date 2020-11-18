@@ -22,6 +22,7 @@ namespace Calculatron
                 Console.WriteLine("4) Divide two numbers");
                 Console.WriteLine("5) Square a number");
                 Console.WriteLine("6) Find the square root of a number");
+                Console.WriteLine("7) Advanced");
                 Console.WriteLine("0) Exit");
 
                 int selection = 0;
@@ -114,6 +115,47 @@ namespace Calculatron
                             Console.WriteLine($"The square root of {num} is {result}");  
                         }
                          
+                    }
+                }
+                else if(selection == 7)
+                {   
+                    //get the user formula
+                    List<string> formula = Console.ReadLine().Split(" ").ToList();
+                    int num1 = 0;
+                    int num2 = 0;
+                    try
+                    {
+                        num1 = Int32.Parse(formula[0]);
+                        num2 = Int32.Parse(formula[2]);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Please enter valid integers.");
+                        continue;
+                    }
+
+                    //perform the desired function
+                    switch (formula[1])
+                    {
+                        case "+":
+                            Console.WriteLine(calc.Add(num1, num2));
+                            break;
+                        case "-":
+                            Console.WriteLine(calc.Subtract(num1,num2));
+                            break;
+                        case "*":
+                            Console.WriteLine(calc.Multiply(num1, num2));
+                            break;
+                        case "/":
+                            try
+                            {
+                                Console.WriteLine(calc.Divide(num1, num2));
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Can't divide by 0");
+                            }
+                            break;
                     }
                 }
                 //if the user entered anything other than 1,2,3, or 4, exit the while loop
